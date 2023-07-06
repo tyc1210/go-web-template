@@ -1,0 +1,30 @@
+Server:
+  RunMode: debug
+  HttpPort: 8001
+App:
+  LoggerFileName: storage/logs/app.log
+  LoggerLevel: debug
+  LoggerMaxSize: 5    # 每个日志文件最大尺寸，单位 MB
+  LoggerMaxBackups: 3 # 最多保留的旧日志文件数
+  LoggerMaxAge: 7     # 保留最近的几天日志文件
+  UploadSavePath: storage/uploads # 上传文件的最终保存目录
+  UploadServerUrl: http://127.0.0.1:8001/api/static/ # 上传文件后的用于展示的文件服务地址。
+  UploadMaxSize: 5  # 上传文件所允许的最大空间大小（MB）。
+  UploadAllowExt:
+    - jpg
+    - jpeg
+    - png
+
+Database:
+  DBType: mysql
+  Username: root
+  Password: 123456
+  Host: 127.0.0.1:3306
+  DBName: go_web
+  Charset: utf8
+  ParseTime: True
+  MaxIdleConns: 10
+  MaxOpenConns: 30
+JWT:
+  Secret: 123456
+  Expire: 7200
