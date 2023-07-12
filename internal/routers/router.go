@@ -10,13 +10,17 @@ import (
 	v1 "go-web-template/internal/routers/handler/v1"
 	"go-web-template/pkg/logger"
 	"net/http"
+	"time"
 )
 
 func NewRouter() *gin.Engine {
-	router := gin.Default()
+	router := gin.New()
 
 	router.Use(middleware.Cors())
 	router.Use(logger.NewLogger())
+	router.Use(middleware.Recovery())
+	router.Use(middleware.ContextTimeout(60 * time.Second))
+
 	r := router.Group("/api")
 	// 文件上传相关
 	router.MaxMultipartMemory = global.Cfg.App.UploadMaxSize << 20

@@ -1,6 +1,7 @@
 package logger
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/natefinch/lumberjack"
 	"github.com/sirupsen/logrus"
@@ -75,12 +76,24 @@ func Info(args ...interface{}) {
 	log.Info(args...)
 }
 
+func Infof(format string, args ...interface{}) {
+	log.Info(fmt.Sprintf(format, args...))
+}
+
 // Warning 记录一条 Warning 级别的日志
 func Warning(args ...interface{}) {
 	log.Warning(args...)
 }
 
+func Warningf(format string, args ...interface{}) {
+	log.Warningf(fmt.Sprintf(format, args...))
+}
+
 // Error 记录一条 Error 级别的日志
 func Error(args ...interface{}) {
 	log.Error(args...)
+}
+
+func Errorf(format string, args ...interface{}) {
+	log.Errorf(fmt.Sprintf(format, args...))
 }
