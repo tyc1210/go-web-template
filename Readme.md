@@ -25,6 +25,10 @@
   - util 工具类
 - storage 存储上传文件、日志等
 
+### 依赖
+所需依赖在 go.mod 查找对应版本进行下载
+例如：gin 在 go.mod 文件中为：github.com/gin-gonic/gin v1.9.1
+在项目go.mod所在文件夹下执行：go get github.com/gin-gonic/gin@v1.9.1
 ### 数据库
 > go get github.com/jinzhu/gorm
 > github.com/go-sql-driver/mysql
